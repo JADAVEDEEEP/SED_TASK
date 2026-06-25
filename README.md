@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personalized Content Dashboard
+
+A Next.js, TypeScript, Redux Toolkit dashboard for tracking personalized news, TV recommendations, and social posts in one interactive interface.
+
+## Features
+
+- Unified feed for Mediastack news, TVMaze shows, and DummyJSON social posts
+- User preference settings for favorite content categories
+- Debounced search across all content types
+- Favorites section persisted in local storage
+- Dark mode toggle persisted in local storage
+- Trending section from the combined feed
+- Drag-and-drop content reordering with React DnD
+- Loading, empty, and partial-error states
+- Responsive sidebar, mobile section tabs, and card-based UI
+
+## APIs
+
+```env
+NEXT_PUBLIC_MEDIASTACK_API_KEY=5157e116241d8d48209d9f901fca0f14
+NEXT_PUBLIC_MEDIASTACK_BASE_URL=https://api.mediastack.com/v1
+NEXT_PUBLIC_TVMAZE_BASE_URL=https://api.tvmaze.com
+NEXT_PUBLIC_DUMMYJSON_BASE_URL=https://dummyjson.com
+```
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create `.env.local` from `.env.example` and add the Mediastack key.
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+```bash
+npm run dev
+npm run build
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```txt
+src
+├── app
+├── components
+│   ├── cards
+│   ├── common
+│   ├── dashboard
+│   ├── layout
+│   └── ui
+├── constants
+├── hooks
+├── redux
+│   ├── slices
+│   ├── provider.tsx
+│   └── store.ts
+├── services
+├── styles
+├── types
+└── utils
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The dashboard uses Redux Toolkit thunks for API calls and local storage persistence for preferences, favorites, and theme. If one API source fails, the UI keeps rendering content from the remaining sources and shows a partial sync warning.
