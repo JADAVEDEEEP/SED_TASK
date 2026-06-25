@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Personalized Content Dashboard
 
 A Next.js, TypeScript, Redux Toolkit dashboard for tracking personalized news, TV recommendations, and social posts in one interactive interface.
@@ -79,3 +80,6 @@ src
 ## Notes
 
 The dashboard uses Redux Toolkit thunks for API calls and local storage persistence for preferences, favorites, and theme. If one API source fails, the UI keeps rendering content from the remaining sources and shows a partial sync warning.
+=======
+# SED_TASK
+>>>>>>> 4161473dcb728645c0a2d342f81e38e3ce13f56c
